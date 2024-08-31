@@ -121,64 +121,95 @@ Shared Step Definitions
 Common Step Definitions File (e.g., CommonSteps.java)
 
 @Given("I have a patient record for {string}")
+
 public void loadPatientRecord(String patientName) {
+
     // Code to retrieve or create a patient record
+    
     patientRecord = patientService.getPatientByName(patientName);
 }
 
 @When("I update the contact details to {string}")
+
 public void updateContactDetails(String newContact) {
+
     patientRecord.setContactNumber(newContact);
+    
     patientService.savePatient(patientRecord);
 }
 
 @Then("the updated contact details should be {string}")
+
 public void verifyUpdatedContactDetails(String expectedContact) {
+  
     assertEquals(expectedContact, patientRecord.getContactNumber());
 }
 
 @When("I update the address to {string}")
+
 public void updateAddress(String newAddress) {
+
     patientRecord.setAddress(newAddress);
+    
     patientService.savePatient(patientRecord);
 }
 
 @Then("the updated address should be {string}")
+
 public void verifyUpdatedAddress(String expectedAddress) {
+
     assertEquals(expectedAddress, patientRecord.getAddress());
 }
 
 @Given("I am on the appointment scheduling page")
+
 public void navigateToSchedulingPage() {
+
     // Code to navigate to the scheduling page
 }
 
 @When("I book an appointment for {string} with {string} on {string}")
+
 public void bookAppointment(String patientName, String doctor, String appointmentDate) {
+    
     // Code to book an appointment
+
     appointmentService.bookAppointment(patientName, doctor, appointmentDate);
 }
 
 @Then("the appointment confirmation should display:")
+
 public void verifyAppointmentConfirmation(DataTable dataTable) {
+
     List<Map<String, String>> appointmentDetails = dataTable.asMaps(String.class, String.class);
+    
     // Code to verify appointment details
+    
     for (Map<String, String> details : appointmentDetails) {
+    
         assertEquals(details.get("patientName"), appointment.getPatientName());
+        
         assertEquals(details.get("doctor"), appointment.getDoctor());
+        
         assertEquals(details.get("appointmentDate"), appointment.getDate());
     }
 }
 
 @When("I cancel the appointment")
+
 public void cancelAppointment() {
+
     // Code to cancel the appointment
+    
     appointmentService.cancelAppointment(patientName, doctor, appointmentDate);
 }
 
 @Then("the appointment should no longer be listed")
+
 public void verifyAppointmentCancellation() {
+
     // Code to check that the appointment is no longer listed
+    
     assertFalse(appointmentService.isAppointmentListed(patientName, doctor, appointmentDate));
 }
 
