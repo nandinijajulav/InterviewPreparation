@@ -1,4 +1,4 @@
-# InterviewPreparation
+# Interview Preparation
 Question: Can you explain the difference between a Scenario Outline and a Data Table in Cucumber? How would you use each in a testing scenario?
 
 Answer: Scenario Outline runs the same scenario with multiple data sets using placeholders, while Data Tables pass complex data within a single step. Use Scenario Outline for varied inputs; use Data Tables for detailed data within one scenario.
