@@ -213,6 +213,74 @@ public void verifyAppointmentCancellation() {
     assertFalse(appointmentService.isAppointmentListed(patientName, doctor, appointmentDate));
 }
 
+Passing data from one step to another in Cucumber can be done using various techniques, depending on the language and framework you're working with. One common approach is to use instance variables within the step definition class or context classes to store data that can be accessed by subsequent steps.
+
+Feature: Patient Management
+
+  Scenario: Create and verify patient record
+    
+    When I create a new patient with name "John Doe" and age "30"
+    
+    Then I should see the patient record with name "John Doe" and age "30"
+
+@When("I create a new patient with name {string} and age {int}")
+    
+    public void createNewPatient(String name, int age) {
+    
+        // Code to create a new patient
+        
+        this.patientName = name;  // Store data to be used in the next step
+        
+        this.patientAge = age;
+        
+        // Assume that there is a service or method to create a patient
+        patientService.createPatient(name, age);
+    }
+
+Instance Variables: Data can be stored in instance variables of the step definition class and accessed by subsequent steps.
+
+Context Classes: In larger projects, you might use a context or state class to hold the data across steps, especially when dealing with more complex data or multiple feature files.
+
+A context class typically holds all the data that needs to be shared among the steps in a scenario. Each scenario has its own instance of the context class, ensuring that data is isolated between scenarios, which avoids side effects and allows for parallel execution.
+
+Step 1: Create a Context Class
+
+Step 2: Modify the Step Definitions to Use the Context Class
+
+Step 3: Configure Dependency Injection
+
+TestContext.java:
+
+public class TestContext {
+    private Patient patient;
+    private Appointment appointment;
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Appointment getAppointment() {
+        return appointment;
+    }
+
+    public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+}
+
+public class PatientSteps {
+
+    private TestContext context;
+
+    public PatientSteps(TestContext context) {
+        this.context = context;
+    }
+
+    
 
 Question: How do you use tags in Cucumber, and how would you run a specific set of tests using tags?
 
