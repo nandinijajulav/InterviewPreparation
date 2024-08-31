@@ -78,13 +78,19 @@ Feature File 1: Patient Management
 Feature: Update Patient Information
 
   Scenario: Update patient contact details
+    
     Given I have a patient record for "Alice Johnson"
+    
     When I update the contact details to "555-6789"
+    
     Then the updated contact details should be "555-6789"
 
   Scenario: Update patient address
+    
     Given I have a patient record for "Alice Johnson"
+    
     When I update the address to "456 Maple Ave, Springfield"
+    
     Then the updated address should be "456 Maple Ave, Springfield"
 
 
@@ -92,19 +98,23 @@ Feature: Update Patient Information
 
 Feature: Schedule Appointments
 
-  Feature: Schedule Appointments
-
   Scenario: Book an appointment for a patient
+
     Given I am on the appointment scheduling page
+    
     When I book an appointment for "Alice Johnson" with "Dr. Lee" on "2024-10-01"
+    
     Then the appointment confirmation should display:
      
       | patientName | doctor   | appointmentDate |
       | Alice Johnson | Dr. Lee | 2024-10-01      |
 
   Scenario: Cancel an existing appointment
+    
     Given I have an appointment for "Alice Johnson" with "Dr. Lee" on "2024-10-01"
+    
     When I cancel the appointment
+    
     Then the appointment should no longer be listed
 
 Shared Step Definitions
