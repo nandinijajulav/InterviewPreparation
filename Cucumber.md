@@ -69,7 +69,110 @@ Usage: The Data Table in this scenario is used to check that multiple fields in 
 
 Question: How do you handle shared step definitions across multiple feature files in a large Cucumber project?
 
-Answer: Organize shared step definitions into common or base classes to avoid duplication. Use package structures to group related steps logically, ensuring reusability across multiple feature files while maintaining a clean and scalable project structure.
+Answer: Use Case: Managing Patient Records and Appointments
+
+Scenario: In a healthcare management system, you have multiple features related to patient management and appointment scheduling. You need to ensure that common steps used in various scenarios, such as verifying patient information and booking appointments, are reused efficiently.
+
+Feature File 1: Patient Management
+
+Feature: Update Patient Information
+
+ Feature: Update Patient Information
+
+  Scenario: Update patient contact details
+    Given I have a patient record for "Alice Johnson"
+    When I update the contact details to "555-6789"
+    Then the updated contact details should be "555-6789"
+
+  Scenario: Update patient address
+    Given I have a patient record for "Alice Johnson"
+    When I update the address to "456 Maple Ave, Springfield"
+    Then the updated address should be "456 Maple Ave, Springfield"
+
+
+ Feature File 2: Appointment Scheduling
+
+Feature: Schedule Appointments
+
+  Feature: Schedule Appointments
+
+  Scenario: Book an appointment for a patient
+    Given I am on the appointment scheduling page
+    When I book an appointment for "Alice Johnson" with "Dr. Lee" on "2024-10-01"
+    Then the appointment confirmation should display:
+      | patientName | doctor   | appointmentDate |
+      | Alice Johnson | Dr. Lee | 2024-10-01      |
+
+  Scenario: Cancel an existing appointment
+    Given I have an appointment for "Alice Johnson" with "Dr. Lee" on "2024-10-01"
+    When I cancel the appointment
+    Then the appointment should no longer be listed
+
+Shared Step Definitions
+Common Step Definitions File (e.g., CommonSteps.java)
+
+@Given("I have a patient record for {string}")
+public void loadPatientRecord(String patientName) {
+    // Code to retrieve or create a patient record
+    patientRecord = patientService.getPatientByName(patientName);
+}
+
+@When("I update the contact details to {string}")
+public void updateContactDetails(String newContact) {
+    patientRecord.setContactNumber(newContact);
+    patientService.savePatient(patientRecord);
+}
+
+@Then("the updated contact details should be {string}")
+public void verifyUpdatedContactDetails(String expectedContact) {
+    assertEquals(expectedContact, patientRecord.getContactNumber());
+}
+
+@When("I update the address to {string}")
+public void updateAddress(String newAddress) {
+    patientRecord.setAddress(newAddress);
+    patientService.savePatient(patientRecord);
+}
+
+@Then("the updated address should be {string}")
+public void verifyUpdatedAddress(String expectedAddress) {
+    assertEquals(expectedAddress, patientRecord.getAddress());
+}
+
+@Given("I am on the appointment scheduling page")
+public void navigateToSchedulingPage() {
+    // Code to navigate to the scheduling page
+}
+
+@When("I book an appointment for {string} with {string} on {string}")
+public void bookAppointment(String patientName, String doctor, String appointmentDate) {
+    // Code to book an appointment
+    appointmentService.bookAppointment(patientName, doctor, appointmentDate);
+}
+
+@Then("the appointment confirmation should display:")
+public void verifyAppointmentConfirmation(DataTable dataTable) {
+    List<Map<String, String>> appointmentDetails = dataTable.asMaps(String.class, String.class);
+    // Code to verify appointment details
+    for (Map<String, String> details : appointmentDetails) {
+        assertEquals(details.get("patientName"), appointment.getPatientName());
+        assertEquals(details.get("doctor"), appointment.getDoctor());
+        assertEquals(details.get("appointmentDate"), appointment.getDate());
+    }
+}
+
+@When("I cancel the appointment")
+public void cancelAppointment() {
+    // Code to cancel the appointment
+    appointmentService.cancelAppointment(patientName, doctor, appointmentDate);
+}
+
+@Then("the appointment should no longer be listed")
+public void verifyAppointmentCancellation() {
+    // Code to check that the appointment is no longer listed
+    assertFalse(appointmentService.isAppointmentListed(patientName, doctor, appointmentDate));
+}
+
 
 Question: How do you use tags in Cucumber, and how would you run a specific set of tests using tags?
 
