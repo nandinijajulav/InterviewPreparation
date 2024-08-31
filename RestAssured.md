@@ -58,7 +58,7 @@ public void testStatusCodeForGetRequest() {
         .body("status", equalTo("active"));
 }
 
-5. Verify handling of invalid resource in a GET request (404 status code):
+4. Verify handling of invalid resource in a GET request (404 status code):
 
    public void testInvalidResourceGetRequest() {
 
@@ -72,4 +72,24 @@ public void testStatusCodeForGetRequest() {
    .then()
 
         .statusCode(404);
+}
+
+5. Verify GET request with query parameters returns expected results:
+
+   public void testGetRequestWithQueryParams() {
+
+    given()
+
+        .baseUri("https://api.example.com")
+
+        .queryParam("status", "active")
+
+    .when()
+
+        .get("/resources")
+    .then()
+
+        .statusCode(200)
+
+        .body("size()", greaterThan(0));
 }
