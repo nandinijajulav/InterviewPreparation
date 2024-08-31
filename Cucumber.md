@@ -50,13 +50,17 @@ Feature: Verify Patient Record Details
 Step Definitions:
 
 @Then("I should see the following details:")
+
 public void verifyPatientDetails(DataTable dataTable) {
+   
     List<Map<String, String>> details = dataTable.asMaps(String.class, String.class);
+    
     for (Map<String, String> row : details) {
         String field = row.get("field");
         String expectedValue = row.get("value");
         String actualValue = patientRecord.getField(field);
         assertEquals(expectedValue, actualValue, "Mismatch for " + field);
+    
     }
 }
 
