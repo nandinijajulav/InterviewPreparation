@@ -284,7 +284,53 @@ public class PatientSteps {
 
 Question: How do you use tags in Cucumber, and how would you run a specific set of tests using tags?
 
-Answer: In Cucumber, tags are used to categorize scenarios or feature files, allowing you to selectively run specific tests. You can assign tags by placing @TagName above a scenario, feature, or step.
+In Cucumber, tags are a powerful feature that allow you to group and selectively run specific scenarios or feature files. This can be particularly useful in a large project, such as in the healthcare industry, where you might have a wide range of tests covering different aspects of the application, such as patient management, appointment scheduling, billing, and more.
+
+Using Tags in Cucumber
+1. Tagging Scenarios and Features:
+
+You can tag individual scenarios or entire feature files by placing tags above the Feature, Scenario, or Scenario Outline keyword. Tags are prefixed with @ and can be any name you choose.
+
+@PatientManagement
+Feature: Manage patient records
+
+  @CreatePatient
+  Scenario: Create a new patient record
+    Given I am on the patient registration page
+    When I enter the patient's details
+    Then a new patient record should be created
+
+  @UpdatePatient
+  Scenario: Update an existing patient record
+    Given I have a patient record
+    When I update the patient's contact information
+    Then the patient record should reflect the updated information
+
+@AppointmentBooking
+Feature: Book appointments
+
+  @BookAppointment
+  Scenario: Book an appointment for a patient
+    Given a patient is registered
+    When I book an appointment with Dr. Smith on "2024-09-01"
+    Then the appointment should be scheduled successfully
+
+2. Running Specific Tagged Scenarios:
+
+Using Maven:
+
+mvn test -Dcucumber.options="--tags @PatientManagement"
+
+Combining Tags:
+
+AND logic: Run scenarios that have both tags.
+
+mvn test -Dcucumber.options="--tags @PatientManagement and @CreatePatient"
+
+OR logic: Run scenarios that have either tag.
+
+mvn test -Dcucumber.options="--tags @CreatePatient,@UpdatePatient"
+
 
 Question: How do you implement parameterization in Cucumber to handle dynamic data in your test cases?
 
