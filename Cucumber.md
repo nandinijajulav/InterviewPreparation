@@ -1,21 +1,16 @@
 # InterviewPreparation
 Question: Can you explain the difference between a Scenario Outline and a Data Table in Cucumber? How would you use each in a testing scenario?
-Answer Expectation: The candidate should explain that Scenario Outline is used for running the same scenario with different sets of data, and Data Tables are used to pass multiple sets of data within a single step. 
-They should also provide an example of when each would be appropriate.
+Answer Scenario Outline runs the same scenario with multiple data sets using placeholders, while Data Tables pass complex data within a single step. Use Scenario Outline for varied inputs; use Data Tables for detailed data within one scenario.
 
 Question: How do you handle shared step definitions across multiple feature files in a large Cucumber project?
-Answer Expectation: The candidate should discuss organizing step definitions in a modular fashion, possibly using a base class or common step definition 
-files to avoid duplication and maintain scalability.
+Answer: Organize shared step definitions into common or base classes to avoid duplication. Use package structures to group related steps logically, ensuring reusability across multiple feature files while maintaining a clean and scalable project structure.
 
 Question: How do you use tags in Cucumber, and how would you run a specific set of tests using tags?
-Answer Expectation: The candidate should demonstrate knowledge of Cucumber tags, explaining how to tag scenarios, and how to run tests selectively using 
-tags with Cucumber options in the test runner.
+Answer In Cucumber, tags are used to categorize scenarios or feature files, allowing you to selectively run specific tests. You can assign tags by placing @TagName above a scenario, feature, or step.
 
 Question: How do you implement parameterization in Cucumber to handle dynamic data in your test cases?
-Answer Expectation: The candidate should describe using Cucumber's ability to pass parameters in step definitions using regular expressions or Cucumber expressions, 
-and give examples of parameterized steps.
+Answer Implement parameterization in Cucumber by using placeholders in step definitions with regular expressions or Cucumber expressions. This allows dynamic data input, enabling the same step to run with different data sets.
 
 Question: How would you integrate Cucumber tests with Jenkins for continuous integration, and what challenges might you face?
-Answer Expectation: The candidate should explain how to set up a Jenkins job to run Cucumber tests, possibly discussing plugins like Cucumber-JVM Reports for reporting. They should also touch on handling dependencies, 
-setting up the environment, and dealing with test failures.
+Answer Integrate Cucumber with Jenkins by configuring a Jenkins job to run Cucumber tests using Maven or Gradle. Challenges include managing dependencies, setting up test environments, handling parallel execution, and generating detailed test reports.
 
