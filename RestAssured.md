@@ -883,6 +883,34 @@ public class InvalidTokenTest {
     }
 }
 
+Verify response body is empty after a DELETE request.
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+
+import org.junit.jupiter.api.Test;
+
+public class DeleteResponseBodyTest {
+
+    // Base URL and Endpoint
+    private static final String BASE_URL = "https://api.example.com";
+    private static final String ENDPOINT = "/resources/{id}";
+
+    @Test
+    public void testDeleteResponseBodyIsEmpty() {
+        // Resource ID to delete
+        String resourceId = "12345"; // Assume this ID exists
+
+        // Send DELETE request and verify the response
+        given()
+            .baseUri(BASE_URL)
+        .when()
+            .delete(ENDPOINT, resourceId)
+        .then()
+            .statusCode(204)  // Verify the status code is 204 No Content
+            .body(empty());  // Verify that the response body is empty
+    }
+}
 
 
     
