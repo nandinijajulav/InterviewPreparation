@@ -237,120 +237,186 @@ public void testValidPostRequest() {
 7. Verify handling of invalid input data in a POST request (400 status code):
 
    public void testInvalidPostRequest() {
-    String requestBody = "{ \"name\": \"\", \"status\": \"active\" }";
+
+   String requestBody = "{ \"name\": \"\", \"status\": \"active\" }";
     
     given()
+
         .baseUri("https://api.example.com")
+
         .contentType("application/json")
+
         .body(requestBody)
+
     .when()
+
         .post("/resource")
+
     .then()
         .statusCode(400);
 }
 
 
-8. Verify duplicate resource creation is handled correctly (409 status code):
+9. Verify duplicate resource creation is handled correctly (409 status code):
 
    public void testDuplicatePostRequest() {
+
     String requestBody = "{ \"name\": \"Duplicate Resource\", \"status\": \"active\" }";
     
     given()
+
         .baseUri("https://api.example.com")
+
         .contentType("application/json")
+
         .body(requestBody)
+
     .when()
+
         .post("/resource")
+
     .then()
+
         .statusCode(201); // First creation
     
     given()
+
         .baseUri("https://api.example.com")
+
         .contentType("application/json")
+
         .body(requestBody)
+
     .when()
+
         .post("/resource")
+
     .then()
+
         .statusCode(409); // Duplicate creation
 }
 
-9. Verify successful update of a resource with a valid PUT request:
+11. Verify successful update of a resource with a valid PUT request:
 
     public void testValidPutRequest() {
-    String requestBody = "{ \"name\": \"Updated Resource\", \"status\": \"inactive\" }";
+
+     String requestBody = "{ \"name\": \"Updated Resource\", \"status\": \"inactive\" }";
     
     given()
+
         .baseUri("https://api.example.com")
+
         .contentType("application/json")
+
         .body(requestBody)
+
     .when()
+
         .put("/resource/1")
+
     .then()
+
         .statusCode(200)
+
         .body("id", equalTo(1))
+
         .body("name", equalTo("Updated Resource"))
+
         .body("status", equalTo("inactive"));
 }
 
-10. Verify handling of updating a non-existent resource (404 status code):
+13. Verify handling of updating a non-existent resource (404 status code):
 
     public void testUpdateNonExistentResource() {
+
     String requestBody = "{ \"name\": \"Non-existent Resource\", \"status\": \"inactive\" }";
     
     given()
+
         .baseUri("https://api.example.com")
+
         .contentType("application/json")
+
         .body(requestBody)
+
     .when()
+
         .put("/resource/9999")
+
     .then()
+
         .statusCode(404);
 }
 
-11. Verify successful deletion of a resource with a valid DELETE request:
+15. Verify successful deletion of a resource with a valid DELETE request:
 
     public void testValidDeleteRequest() {
+
     given()
+
         .baseUri("https://api.example.com")
+
     .when()
+
         .delete("/resource/1")
+
     .then()
+
         .statusCode(204); // No content on successful deletion
 }
 
-12. Verify handling of deleting a non-existent resource (404 status code):
+17. Verify handling of deleting a non-existent resource (404 status code):
 
     public void testDeleteNonExistentResource() {
+
     given()
+
         .baseUri("https://api.example.com")
+
     .when()
+
         .delete("/resource/9999")
+
     .then()
+
         .statusCode(404);
 }
 
-13. Verify API returns 401 for unauthorized access without a token:
+19. Verify API returns 401 for unauthorized access without a token:
 
     public void testUnauthorizedAccess() {
+
     given()
+
         .baseUri("https://api.example.com")
+
     .when()
+
         .get("/secure/resource")
+
     .then()
+
         .statusCode(401);
 }
 
-14. Verify valid token allows access to a protected resource:
+21. Verify valid token allows access to a protected resource:
 
 public void testAuthorizedAccess() {
+    
     String validToken = "Bearer valid_token_example";
     
     given()
+    
         .baseUri("https://api.example.com")
+        
         .header("Authorization", validToken)
+    
     .when()
+    
         .get("/secure/resource")
+    
     .then()
+    
         .statusCode(200);
 }
 
