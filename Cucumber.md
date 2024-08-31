@@ -77,8 +77,6 @@ Feature File 1: Patient Management
 
 Feature: Update Patient Information
 
- Feature: Update Patient Information
-
   Scenario: Update patient contact details
     Given I have a patient record for "Alice Johnson"
     When I update the contact details to "555-6789"
@@ -100,6 +98,7 @@ Feature: Schedule Appointments
     Given I am on the appointment scheduling page
     When I book an appointment for "Alice Johnson" with "Dr. Lee" on "2024-10-01"
     Then the appointment confirmation should display:
+     
       | patientName | doctor   | appointmentDate |
       | Alice Johnson | Dr. Lee | 2024-10-01      |
 
