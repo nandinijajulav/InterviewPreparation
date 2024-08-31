@@ -9,16 +9,11 @@ import static org.hamcrest.Matchers.*;
 public void testValidGetRequest() {
 
     given()
-    
-        .baseUri("https://api.example.com")
-    
+      .baseUri("https://api.example.com")
     .when()
-    
-        .get("/resource/1")
-    
+      .get("/resource/1")
     .then()
-    
-        .statusCode(200);
+      .statusCode(200);
 }
 
 2. Verify status code is 200 for a valid GET request:
