@@ -39,6 +39,7 @@ Feature: Verify Patient Record Details
     Given I have updated the patient record for "John Doe"
     When I view the updated record
     Then I should see the following details:
+     
       | field          | value            |
       | First Name     | John             |
       | Last Name      | Doe              |
