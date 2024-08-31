@@ -31,6 +31,7 @@ public void bookAppointment(String patientName, String doctor, String appointmen
 Usage: This scenario outline tests the booking functionality for different patients. It ensures the system handles various inputs correctly and schedules appointments as expected.
 
 Data Table Example in Healthcare Industry:
+
 Use Case: Verifying patient record details after an update in a hospital management system.
 
 Feature: Verify Patient Record Details
