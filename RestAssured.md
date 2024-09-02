@@ -506,11 +506,15 @@ public class AuthorizationTest {
 Verify GET request with path parameters returns expected results.
 
 Purpose of the Test:
+
 Path Parameter Handling: Verify that the API correctly interprets the path parameters and retrieves the correct resource.
+
 Data Validation: Ensure that the response data matches the expected results based on the provided path parameters.
+
 Error Handling: Check that the API returns the correct error status codes (like 404 Not Found) when invalid or non-existent path parameters are used.
 
 import static io.restassured.RestAssured.*;
+
 import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
@@ -519,57 +523,80 @@ public class PathParameterTest {
 
     // Base URL and Endpoint
     private static final String BASE_URL = "https://api.example.com";
+
     private static final String ENDPOINT = "/users/{userId}";
 
     @Test
     public void testGetRequestWithValidPathParameter() {
+    
         // Send GET request with a valid path parameter (e.g., userId = 123)
+        
         given()
+        
             .baseUri(BASE_URL)
+            
             .pathParam("userId", 123)
         .when()
             .get(ENDPOINT)
         .then()
             .statusCode(200)  // Verify the status code is 200 OK
+           
             .body("id", equalTo(123))  // Example: verify the user ID in the response
+            
             .body("username", equalTo("johndoe"))  // Example: verify the username in the response
+            
             .body("email", equalTo("johndoe@example.com"));  // Example: verify the email in the response
     }
 
     @Test
     public void testGetRequestWithInvalidPathParameter() {
         // Send GET request with an invalid path parameter (e.g., userId = 9999, assuming this ID doesn't exist)
+        
         given()
+        
             .baseUri(BASE_URL)
+            
             .pathParam("userId", 9999)
         .when()
+           
             .get(ENDPOINT)
+        
         .then()
+        
             .statusCode(404)  // Verify the status code is 404 Not Found
+            
             .body("error", equalTo("User not found"));  // Example: verify the error message
     }
 }
 
 Purpose of the Test:
+
 Pagination Handling: Verify that the API correctly processes pagination parameters and returns the expected subset of data.
+
 Boundary Testing: Check the behavior of the API when navigating to the first page, last page, or beyond the available data.
+
 Consistency: Ensure that the data returned on consecutive pages is consistent and does not overlap or skip records.
 
 est Scenario:
 Basic Pagination Test:
 
 Send a GET request with pagination parameters (e.g., page, limit) and verify that the API returns the correct subset of data.
+
 Boundary Tests:
 
 Test the first and last pages to ensure they are handled correctly.
+
 Test with a page number that exceeds the total number of available pages.
+
 Edge Cases:
 
 Test with a limit of 0 or a negative value.
+
 Test with an invalid page number (e.g., negative or non-integer values).
 
 
 import static io.restassured.RestAssured.*;
+
 import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.Test;
@@ -578,49 +605,81 @@ public class PaginationTest {
 
     // Base URL and Endpoint
     private static final String BASE_URL = "https://api.example.com";
+
     private static final String ENDPOINT = "/items";
 
     @Test
     public void testGetRequestWithPaginationParameters() {
+    
         // Send GET request with pagination parameters (e.g., page=1, limit=10)
+        
         given()
+        
             .baseUri(BASE_URL)
+            
             .queryParam("page", 1)
+            
             .queryParam("limit", 10)
+        
         .when()
+        
             .get(ENDPOINT)
+        
         .then()
+        
             .statusCode(200)  // Verify the status code is 200 OK
+            
             .body("items.size()", equalTo(10))  // Verify that 10 items are returned
+            
             .body("page", equalTo(1))  // Verify the correct page number is returned
+            
             .body("totalItems", greaterThan(10))  // Verify that totalItems is greater than the limit
+            
             .body("totalPages", greaterThan(1));  // Verify that there are multiple pages
     }
 
     @Test
     public void testGetRequestWithBoundaryPagination() {
+        
         // Test the last page to ensure it returns the correct data
+        
         int lastPage = 5;  // Assume there are 5 pages
+        
         given()
+        
             .baseUri(BASE_URL)
+            
             .queryParam("page", lastPage)
+            
             .queryParam("limit", 10)
         .when()
+           
             .get(ENDPOINT)
+        
         .then()
+        
             .statusCode(200)
+            
             .body("page", equalTo(lastPage))
+            
             .body("items.size()", lessThanOrEqualTo(10));  // Verify the last page has up to 10 items
 
         // Test a page number beyond the last page
         given()
+            
             .baseUri(BASE_URL)
+            
             .queryParam("page", lastPage + 1)
+            
             .queryParam("limit", 10)
         .when()
+            
             .get(ENDPOINT)
+        
         .then()
+        
             .statusCode(200)
+            
             .body("items.size()", equalTo(0));  // Verify that no items are returned
     }
 
@@ -628,24 +687,39 @@ public class PaginationTest {
     public void testGetRequestWithInvalidPaginationParameters() {
         // Test with a limit of 0
         given()
+            
             .baseUri(BASE_URL)
+            
             .queryParam("page", 1)
+            
             .queryParam("limit", 0)
         .when()
+            
             .get(ENDPOINT)
+        
         .then()
+            
             .statusCode(400)  // Verify the status code is 400 Bad Request or handled error
+        
             .body("error", containsString("Invalid limit value"));
 
         // Test with a negative page number
         given()
+            
             .baseUri(BASE_URL)
+            
             .queryParam("page", -1)
+            
             .queryParam("limit", 10)
+        
         .when()
+            
             .get(ENDPOINT)
+        
         .then()
+        
             .statusCode(400)  // Verify the status code is 400 Bad Request or handled error
+            
             .body("error", containsString("Invalid page value"));
     }
 }
@@ -662,6 +736,7 @@ public class ResponseTimeTest {
 
     // Base URL and Endpoint
     private static final String BASE_URL = "https://api.example.com";
+   
     private static final String ENDPOINT = "/resources";
 
     @Test
@@ -674,12 +749,18 @@ public class ResponseTimeTest {
 
         // Send POST request and verify response time is within acceptable limits
         given()
+    
             .baseUri(BASE_URL)
+            
             .header("Content-Type", "application/json")
+            
             .body(requestBody)
         .when()
+            
             .post(ENDPOINT)
+        
         .then()
+            
             .statusCode(201)  // Verify the status code is 201 Created
             .time(lessThan(acceptableResponseTime));  // Verify the response time is less than 2000 ms
     }
