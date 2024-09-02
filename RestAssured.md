@@ -423,23 +423,31 @@ public void testAuthorizedAccess() {
 15. Verify API handles special characters in request parameters correctly:
 
 16. Test Scenario:
+
 Happy Path:
 
 Send a GET request with a valid Authorization header.
+
 Verify that the API returns the expected data with a 200 OK status code.
+
 Invalid Token:
 
 Send a GET request with an invalid or expired token in the Authorization header.
+
 Verify that the API returns a 401 Unauthorized or 403 Forbidden status code.
+
 Missing Token:
 
 Send a GET request without the Authorization header.
+
 Verify that the API returns a 401 Unauthorized status code.
 
 import static io.restassured.RestAssured.*;
+
 import static org.hamcrest.Matchers.*;
 
 import io.restassured.response.Response;
+
 import org.junit.jupiter.api.Test;
 
 public class AuthorizationTest {
