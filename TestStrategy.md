@@ -4,17 +4,24 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
 
    Active Engagement Early in the Process:
 
-	I participate in requirement gathering sessions, such as sprint planning or backlog grooming meetings, where the PM presents the stories and requirements. During these sessions, I ask clarifying questions to fully understand the intent and expectations behind each requirement.
-	Collaborative Review:
+	I participate in requirement gathering sessions, such as sprint planning or backlog grooming meetings, where the PM presents the stories and requirements. 
+    During these sessions, I ask clarifying questions to fully understand the intent and expectations behind each requirement.
+	
+    Collaborative Review:
 
-	I collaborate closely with the PM to review the requirements and user stories, ensuring they follow the INVEST criteria (Independent, Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are specific, measurable, and aligned with what can be practically tested.
-	Defining Clear Acceptance Criteria:
+	I collaborate closely with the PM to review the requirements and user stories, ensuring they follow the INVEST criteria (Independent, Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are specific, measurable, and aligned with what 
+ can be practically tested.
+
+     Defining Clear Acceptance Criteria:
 
 	I work with the PM to define clear, detailed acceptance criteria for each requirement. These criteria serve as the basis for test cases and help ensure that both the development and testing teams have a shared understanding of what "done" looks like.
-	Identifying Potential Gaps or Ambiguities:
 
-	If I notice any gaps, ambiguities, or areas where the requirements might be difficult to test, I bring them up immediately with the PM. I might suggest adding more details or breaking down complex stories into smaller, more manageable ones.
-	Documenting Test Scenarios Early:
+      Identifying Potential Gaps or Ambiguities:
+
+	If I notice any gaps, ambiguities, or areas where the requirements might be difficult to test, I bring them up immediately with the PM. I might suggest 
+     adding more details or breaking down complex stories into smaller, more manageable ones.
+	
+     Documenting Test Scenarios Early:
 
 	I begin drafting test scenarios or cases early in the process, even before development starts. This allows me to validate the testability of the requirements and provides an opportunity to catch any potential issues upfront. If I encounter scenarios that are hard to test, I loop back with the PM to refine the requirements.
 	Continuous Feedback Loop:
