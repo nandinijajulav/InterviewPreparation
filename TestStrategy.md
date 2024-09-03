@@ -1,6 +1,6 @@
-How do you ensure that the requirements provided by Product Managers are clear and testable?
+1. How do you ensure that the requirements provided by Product Managers are clear and testable?
 
-When ensuring that requirements provided by Product Managers (PMs) are clear and testable, my approach involves several key steps:
+A. When ensuring that requirements provided by Product Managers (PMs) are clear and testable, my approach involves several key steps:
 
 Active Engagement Early in the Process:
 
