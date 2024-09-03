@@ -9,12 +9,14 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
 	
     Collaborative Review:
 
-	I collaborate closely with the PM to review the requirements and user stories, ensuring they follow the INVEST criteria (Independent, Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are specific, measurable, and aligned with what 
- can be practically tested.
+	I collaborate closely with the PM to review the requirements and user stories, ensuring they follow the INVEST criteria (Independent, 
+ Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are specific, 
+ measurable, and aligned with what can be practically tested.
 
      Defining Clear Acceptance Criteria:
 
-	I work with the PM to define clear, detailed acceptance criteria for each requirement. These criteria serve as the basis for test cases and help ensure that both the development and testing teams have a shared understanding of what "done" looks like.
+	I work with the PM to define clear, detailed acceptance criteria for each requirement. These criteria serve as the basis for test cases and help ensure that both 
+     the development and testing teams have a shared understanding of what "done" looks like.
 
       Identifying Potential Gaps or Ambiguities:
 
@@ -23,14 +25,21 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
 	
      Documenting Test Scenarios Early:
 
-	I begin drafting test scenarios or cases early in the process, even before development starts. This allows me to validate the testability of the requirements and provides an opportunity to catch any potential issues upfront. If I encounter scenarios that are hard to test, I loop back with the PM to refine the requirements.
-	Continuous Feedback Loop:
+	I begin drafting test scenarios or cases early in the process, even before development starts. This allows me to validate the testability of the requirements 
+      and provides an opportunity to catch any potential issues upfront. If I encounter scenarios that are hard to test, I loop back with the PM to refine the requirements.
+	
+      Continuous Feedback Loop:
 
-	I maintain a continuous feedback loop with the PM throughout the development cycle. This ensures that as development progresses, any changes or new insights are quickly incorporated into the requirements and test plans.
-	Leveraging User Personas and Use Cases:
+	I maintain a continuous feedback loop with the PM throughout the development cycle. This ensures that as development progresses, any changes or new insights are 
+       quickly incorporated into the requirements and test plans.
+	
+      Leveraging User Personas and Use Cases:
 
-	I ensure that requirements are validated against user personas and real-world use cases. This helps in making sure the requirements are not only testable but also relevant to the end users.
-    By following these steps, I ensure that the requirements are not only clear and testable but also aligned with the overall product goals, reducing the risk of rework and ensuring a smoother development and testing process.
+	I ensure that requirements are validated against user personas and real-world use cases. This helps in making sure the requirements are not only testable but also 
+    relevant to the end users.
+    
+    By following these steps, I ensure that the requirements are not only clear and testable but also aligned with the overall product goals, reducing the risk of rework 
+     and ensuring a smoother development and testing process.
 
 
 2) Can you describe a situation where you had to negotiate or clarify a user story with a Product Manager?
