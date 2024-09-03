@@ -4,7 +4,8 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
 
    Active Engagement Early in the Process:
 
-	I participate in requirement gathering sessions, such as sprint planning or backlog grooming meetings, where the PM presents the stories and requirements. 
+	I participate in requirement gathering sessions, such as sprint planning or backlog grooming meetings, where the PM 
+    presents the stories and requirements. 
     During these sessions, I ask clarifying questions to fully understand the intent and expectations behind each requirement.
 	
     Collaborative Review:
