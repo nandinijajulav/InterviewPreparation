@@ -10,8 +10,8 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
     Collaborative Review:
 
 	I collaborate closely with the PM to review the requirements and user stories, ensuring they follow the INVEST criteria (Independent, 
- Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are specific, 
- measurable, and aligned with what can be practically tested.
+        Negotiable, Valuable, Estimable, Small, and Testable). I focus particularly on the "Testable" aspect, ensuring that the acceptance criteria are 
+	specific, measurable, and aligned with what can be practically tested.
 
      Defining Clear Acceptance Criteria:
 
@@ -21,7 +21,7 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
       Identifying Potential Gaps or Ambiguities:
 
 	If I notice any gaps, ambiguities, or areas where the requirements might be difficult to test, I bring them up immediately with the PM. I might suggest 
-     adding more details or breaking down complex stories into smaller, more manageable ones.
+        adding more details or breaking down complex stories into smaller, more manageable ones.
 	
      Documenting Test Scenarios Early:
 
