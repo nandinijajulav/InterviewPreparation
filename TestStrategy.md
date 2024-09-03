@@ -46,16 +46,20 @@ A) When ensuring that requirements provided by Product Managers (PMs) are clear 
 
 A) Situation:
 
-	In a previous project, our team was working on a new feature for a customer-facing application. The Product Manager (PM) had created a user story that described a complex workflow for users to complete a specific task. However, when I reviewed the story, I noticed that the acceptance criteria were vague, and the story included multiple edge cases that could lead to different interpretations.
+	In a previous project, our team was working on a new feature for a customer-facing application. The Product Manager (PM) had created a user story that described a 
+        complex workflow for users to complete a specific task. However, when I reviewed the story, I noticed that the acceptance criteria were vague, and the story 
+        included multiple edge cases that could lead to different interpretations.
 
 	Task:
 
-	My goal was to ensure that the user story was clear, concise, and testable. I needed to work with the PM to clarify the requirements, ensure that all potential scenarios were covered, and reduce any ambiguity that could lead to misunderstandings during development and testing.
+	My goal was to ensure that the user story was clear, concise, and testable. I needed to work with the PM to clarify the requirements, ensure that all potential 
+        scenarios were covered, and reduce any ambiguity that could lead to misunderstandings during development and testing.
 
 	Action:
 
 	Initial Review and Identification of Issues:
-	I first carefully reviewed the user story and noted several areas where the requirements were ambiguous. For example, the story mentioned that users should be able to "easily navigate between steps," but it didn't define what "easily" meant or how navigation would be handled if a user skipped a step.
+	I first carefully reviewed the user story and noted several areas where the requirements were ambiguous. For example, the story mentioned that users should 
+        be able to "easily navigate between steps," but it didn't define what "easily" meant or how navigation would be handled if a user skipped a step.
 
 	Collaborative Discussion:
 	I scheduled a meeting with the PM to discuss these issues. I approached the conversation with a collaborative mindset, aiming to understand the PM's vision while also explaining the potential challenges from a testing and development perspective. During the meeting, I asked specific questions like, "What does 'easily navigate' mean in this context? Should there be specific UI elements or controls?" and "How do we handle scenarios where users may intentionally or accidentally skip a step?"
