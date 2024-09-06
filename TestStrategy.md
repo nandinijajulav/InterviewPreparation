@@ -227,19 +227,24 @@ A) Certainly! Here’s an example of a functional testing process I implemented 
 A) When designing an automation framework, I consider several key factors to ensure it is robust, scalable, and maintainable:
 
 	Modularity and Reusability:
-	I design the framework to be modular, with components that can be reused across different test cases. For example, common actions like login, navigation, and data input are encapsulated in reusable functions or methods. This reduces redundancy and makes the framework easier to maintain.
+	I design the framework to be modular, with components that can be reused across different test cases. For example, common actions like 
+        login, navigation, and data input are encapsulated in reusable functions or methods. This reduces redundancy and makes the framework easier to maintain.
 
 	Scalability:
-	The framework should be scalable to accommodate future growth in both the number of test cases and the complexity of the application. I ensure that the architecture allows for easy addition of new tests and integration with other tools or systems as the project evolves.
+	The framework should be scalable to accommodate future growth in both the number of test cases and the complexity of the application. 
+        I ensure that the architecture allows for easy addition of new tests and integration with other tools or systems as the project evolves.
 
 	Ease of Maintenance:
-	I design the framework with maintenance in mind. This includes following best practices like keeping the codebase clean, using descriptive naming conventions, and organizing the project structure logically. I also implement version control to manage changes efficiently.
+	I design the framework with maintenance in mind. This includes following best practices like keeping the codebase clean, using descriptive naming conventions, 
+        and organizing the project structure logically. I also implement version control to manage changes efficiently.
 
 	Separation of Concerns:
-	I ensure that the framework follows the principle of separation of concerns, where the test scripts, test data, and configurations are kept separate. This makes it easier to manage and update individual components without affecting the others.
+	I ensure that the framework follows the principle of separation of concerns, where the test scripts, test data, and configurations are kept separate. This makes it 
+        easier to manage and update individual components without affecting the others.
 
 	Cross-Browser and Cross-Platform Support:
-	Given that the application needs to be tested across different browsers and platforms, I ensure that the framework supports cross-browser testing. This may involve using tools like Selenium Grid or integrating with cloud-based testing platforms like BrowserStack.
+	Given that the application needs to be tested across different browsers and platforms, I ensure that the framework supports cross-browser testing. This may involve 
+        using tools like Selenium Grid or integrating with cloud-based testing platforms like BrowserStack.
 
 	Integration with CI/CD Pipeline:
 	The framework should be easily integrated into the CI/CD pipeline to enable continuous testing. I set up the framework to trigger automated tests with every code commit or build, ensuring that any issues are caught early in the development cycle.
