@@ -270,47 +270,68 @@ A) When designing an automation framework, I consider several key factors to ens
 A) Ensuring that tests are effective across different platforms and browsers involves a combination of strategic planning, thorough test coverage, and leveraging the right tools:
 
 	Cross-Browser and Cross-Platform Strategy:
-	I start by identifying the target browsers, platforms, and devices that are critical for our user base. This typically includes a mix of popular browsers like Chrome, Firefox, Safari, and Edge, as well as different operating systems like Windows, macOS, Linux, and mobile platforms (iOS and Android). I prioritize these based on user analytics and market share data.
-
-	Writing Flexible Test Scripts:
-	I write test scripts that are flexible and resilient to changes in browser behavior. This includes avoiding hardcoded waits and using robust locators that can adapt to slight differences in the DOM structure across browsers. I also ensure that my tests cover different screen resolutions and orientations, especially for mobile platforms.
-
-	Automated Cross-Browser Testing:
-	I utilize tools like Selenium WebDriver in combination with Selenium Grid or cloud-based services like BrowserStack or Sauce Labs to run automated tests across multiple browsers and platforms simultaneously. This not only saves time but also ensures that my tests are executed consistently across different environments.
-
-	Fallback and Graceful Degradation Testing:
-	I include tests for fallback scenarios to ensure that if a certain feature is not supported by a particular browser, the application still functions correctly. This is particularly important for ensuring a good user experience across older browser versions.
-
-	Continuous Integration and Testing:
-	I integrate cross-browser testing into the CI/CD pipeline, so tests are automatically triggered with every code commit or build. This ensures that any cross-browser issues are caught early in the development cycle, reducing the risk of last-minute surprises before release.
-
-	Manual Exploratory Testing:
-	While automation covers a broad spectrum, I also perform manual exploratory testing on different browsers and platforms. This helps in identifying issues that automated scripts might miss, such as subtle UI/UX differences or browser-specific quirks.
+		I start by identifying the target browsers, platforms, and devices that are critical for our user base. 
+		This typically includes a mix of popular browsers like Chrome, Firefox, Safari, and Edge, 
+		as well as different operating systems like Windows, macOS, Linux, and mobile platforms (iOS and Android). 
+		I prioritize these based on user analytics and market share data.
+		
+		Writing Flexible Test Scripts:
+		I write test scripts that are flexible and resilient to changes in browser behavior. This includes avoiding hardcoded waits 
+		and using robust locators that can adapt to slight differences in the DOM structure across browsers. I also ensure that my 
+		tests cover different screen resolutions and orientations, especially for mobile platforms.
+		
+		Automated Cross-Browser Testing:
+		I utilize tools like Selenium WebDriver in combination with Selenium Grid or cloud-based services like BrowserStack or Sauce 
+		Labs to run automated tests across multiple browsers and platforms simultaneously. This not only saves time but also ensures 
+		that my tests are executed consistently across different environments.
+		
+		Fallback and Graceful Degradation Testing:
+		I include tests for fallback scenarios to ensure that if a certain feature is not supported by a particular browser, the application 
+		still functions correctly. This is particularly important for ensuring a good user experience across older browser versions.
+		
+		Continuous Integration and Testing:
+		I integrate cross-browser testing into the CI/CD pipeline, so tests are automatically triggered with every code commit or build.
+		 This ensures that any cross-browser issues are caught early in the development cycle, reducing the risk of last-minute surprises 
+		 before release.
+		
+		Manual Exploratory Testing:
+		While automation covers a broad spectrum, I also perform manual exploratory testing on different browsers and platforms. 
+		This helps in identifying issues that automated scripts might miss, such as subtle UI/UX differences or browser-specific quirks.
 
 
 11. Describe a challenge you faced during cross-browser testing and how you overcame it.
 
-A) One significant challenge I faced during cross-browser testing was dealing with inconsistencies in how different browsers rendered a complex, dynamic UI component that relied heavily on CSS3 and JavaScript:
+A) One significant challenge I faced during cross-browser testing was dealing with inconsistencies in how different 
+   browsers rendered a complex, dynamic UI component that relied heavily on CSS3 and JavaScript:
 
 	Challenge:
-	The component displayed perfectly on Chrome and Firefox but had issues on Safari and Internet Explorer, where certain animations were choppy, and some elements were misaligned. The automated tests were failing inconsistently, particularly in these browsers, which made debugging more difficult.
+	The component displayed perfectly on Chrome and Firefox but had issues on Safari and Internet Explorer, where certain 
+	animations were choppy, and some elements were misaligned. The automated tests were failing inconsistently, particularly 
+	in these browsers, which made debugging more difficult.
 
 	Approach to Resolve:
 
 	Root Cause Analysis:
-	I started by isolating the issue to determine if it was caused by CSS rendering differences or JavaScript execution. Using browser developer tools, I compared the computed styles and the DOM structure across different browsers to pinpoint discrepancies. I also checked the browser console for any errors or warnings that might indicate compatibility issues.
+	I started by isolating the issue to determine if it was caused by CSS rendering differences or JavaScript execution. Using browser 
+	developer tools, I compared the computed styles and the DOM structure across different browsers to pinpoint discrepancies. I also 
+	checked the browser console for any errors or warnings that might indicate compatibility issues.
 
 	Polyfills and Vendor Prefixes:
-	Once I identified that the issue was related to certain CSS properties not being fully supported in Safari and Internet Explorer, I introduced polyfills and vendor prefixes to ensure consistent behavior across browsers. This resolved most of the styling issues.
+	Once I identified that the issue was related to certain CSS properties not being fully supported in Safari and Internet Explorer, 
+	I introduced polyfills and vendor prefixes to ensure consistent behavior across browsers. This resolved most of the styling issues.
 
 	JavaScript Adjustments:
-	For the JavaScript-related problems, I optimized the code by ensuring that the animations were using browser-optimized techniques, such as using requestAnimationFrame for smoother rendering. I also adjusted the timing and sequencing of animations to make them more compatible across different browsers.
+	For the JavaScript-related problems, I optimized the code by ensuring that the animations were using browser-optimized techniques, 
+	such as using requestAnimationFrame for smoother rendering. I also adjusted the timing and sequencing of animations to make them more 
+	compatible across different browsers.
 
 	Targeted Testing and Verification:
-	After making these adjustments, I reran the tests, focusing specifically on the problematic browsers. I also conducted manual testing to verify that the fixes worked as intended and did not introduce new issues.
+	After making these adjustments, I reran the tests, focusing specifically on the problematic browsers. I also conducted manual testing 
+	to verify that the fixes worked as intended and did not introduce new issues.
 
 	Continuous Monitoring:
-	Post-deployment, I kept a close watch on user feedback and analytics to ensure that no new issues arose from the changes. I also added additional tests to monitor similar UI components to catch any potential regressions in the future.
+	Post-deployment, I kept a close watch on user feedback and analytics to ensure that no new issues arose from the changes. I also 
+	added additional tests to monitor similar UI components to catch any potential regressions in the future.
 
 12. Which tools and techniques do you use for cross-platform testing?
 
