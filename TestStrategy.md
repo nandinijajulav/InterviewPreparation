@@ -196,10 +196,13 @@ A) Certainly! Here’s an example of a functional testing process I implemented 
 	The project involved developing a new e-commerce feature that allowed users to apply discount codes during checkout. The feature was critical as it directly impacted the user experience and the company’s revenue.
 
 	Requirement Analysis:
-	I started by working closely with the Product Manager and developers to thoroughly understand the requirements. I made sure that the acceptance criteria were clear and detailed, covering all possible user scenarios, including valid, invalid, and edge cases.
+	I started by working closely with the Product Manager and developers to thoroughly understand the requirements. I made sure 
+ that the acceptance criteria were clear and detailed, covering all possible user scenarios, including valid, invalid, and edge cases.
 
 	Test Planning:
-	I created a comprehensive test plan that outlined the scope of testing, objectives, resources, and timelines. I identified the key functional areas to test, such as applying discounts, checking the correct total calculation, and handling invalid discount codes. The plan also included a risk assessment to focus on high-priority areas.
+	I created a comprehensive test plan that outlined the scope of testing, objectives, resources, and timelines. I identified the key functional areas to test, 
+ such as applying discounts, checking the correct total calculation, and handling invalid discount codes. The plan also included a risk assessment to 
+ focus on high-priority areas.
 
 	Test Case Design:
 	I designed detailed test cases based on the user stories and acceptance criteria. Each test case was mapped to a specific requirement to ensure full coverage. I used both positive and negative test cases to validate the functionality under different conditions.
